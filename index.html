@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简历</title>
+    <link rel="stylesheet" href="./a.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./loading.css">
+    <script src="//at.alicdn.com/t/font_864312_d0l9ydkxbcv.js"></script>
+    <style type="text/css">
+        .icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<div id="siteWelcome" class="site-welcome active">
+    <div class="loading"></div>
+</div>
+<div class="topNavBar">
+    <div class="nav">
+        <a href="#" class="logo">
+            <span class="rs">RS</span>
+            <span class="card">card</span>
+        </a>
+        <ul>
+            <li><a href="#">关于</a></li>
+            <li><a href="#">技能</a></li>
+            <li><a href="#">作品</a></li>
+            <li><a href="#">经验</a></li>
+            <li><a href="#">价钱</a></li>
+            <li><a href="#">博客</a></li>
+            <li><a href="#">日历</a></li>
+            <li><a href="#">联系</a></li>
+            <li><a href="#">其他</a></li>
+        </ul>
+    </div>
+</div>
+<div class="banner">
+    <div class="mask"></div>
+</div>
+<main>
+    <div class="userCard">
+        <div class="message">
+            <div class="headPic">
+                <img src="./image/旺哥.jpg" height="347">
+            </div>
+            <div class="text">
+                <div class="welcom">
+                    <span>您好</span>
+                    <span class="triangle"></span>
+                </div>
+                <h1>刘书旺</h1>
+                <p>前端工程师</p>
+                <hr>
+                <dl class="clearfix">
+                    <dt>年龄</dt>
+                    <dd>24</dd>
+                    <dt>所在城市</dt>
+                    <dd>郑州</dd>
+                    <dt>邮箱</dt>
+                    <dd>1914161290@qq.com</dd>
+                    <dt>手机</dt>
+                    <dd>18848956986</dd>
+                </dl>
+            </div>
+        </div>
+        <footer>
+            <a href="#">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-tian7_facebook"></use>
+                </svg>
+            </a>
+
+            <a href="#">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-githup"></use>
+                </svg>
+            </a>
+
+            <a href="#">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-weibo"></use>
+                </svg>
+            </a>
+
+
+            <a href="#">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-weixin"></use>
+                </svg>
+            </a>
+
+            <a href="#">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            </a>
+
+            <a href="#">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-ttww"></use>
+                </svg>
+            </a>
+
+
+        </footer>
+    </div>
+    <div class="downloadWrapper">
+        <a href="#" class="downloadBut" download>下载 PDF 地址</a>
+    </div>
+    <p>
+        刘书旺 是一名前端开发工程师 <br>
+        技能: 擅长 HTML CSS JS的知识要点,熟悉jquery vue react等框架
+    </p>
+
+</main>
+<section class="skills">
+    <h1>技能</h1>
+    <ul>
+        <li>
+            <h3>html 5 &amp; css 3</h3>
+            <div class="progressBar">
+                <div class="progress one"></div>
+            </div>
+        </li>
+        <li>
+            <h3>javaScript</h3>
+            <div class="progressBar">
+                <div class="progress two"></div>
+            </div>
+        </li>
+        <li>
+            <h3>jQuery</h3>
+            <div class="progressBar">
+                <div class="progress three"></div>
+            </div>
+        </li>
+        <li>
+            <h3>Vue</h3>
+            <div class="progressBar">
+                <div class="progress four"></div>
+            </div>
+        </li>
+        <li>
+            <h3>React</h3>
+            <div class="progressBar">
+                <div class="progress five"></div>
+            </div>
+        </li>
+        <li>
+            <h3>Http</h3>
+            <div class="progressBar">
+                <div class="progress six"></div>
+            </div>
+        </li>
+    </ul>
+</section>
+
+
+<section class="portfolio">
+    <h1>作品集</h1>
+    <nav>
+        <ul>
+            <li id="portfolio1">全部</li>
+            <li id="portfolio2">作品集</li>
+            <li id="portfolio3">原生js&css</li>
+        </ul>
+        <div id="portfolioBar" class="bar status-1">
+            <div class="inner"></div>
+        </div>
+    </nav>
+    <script>
+        portfolio1.onclick = function () {
+            portfolioBar.className = "bar status-1"
+        }
+        portfolio2.onclick = function () {
+            portfolioBar.className = "bar status-2"
+        }
+        portfolio3.onclick = function () {
+            portfolioBar.className = "bar status-3"
+        }
+
+    </script>
+    <div class="jobs">
+        <div class="big">
+            <img src="./image/1.jpg" alt="" width="600" height="500">
+        </div>
+        <div class="small">
+            <img src="./image/2.jpg" alt="" width="300" height="230">
+            <img src="./image/3.jpg" alt="" width="300" height="230">
+        </div>
+    </div>
+</section>
+<script src="./main.js"></script>
+<script>
+    setTimeout(function(){
+        siteWelcome.classList.remove('active')
+    },2000)
+</script>
+</body>
+</html>
