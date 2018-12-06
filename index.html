@@ -28,10 +28,10 @@
             <span class="card">card</span>
         </a>
         <ul>
-            <li><a href="#">关于</a></li>
-            <li><a href="#">技能</a></li>
+            <li><a href="#siteAbout">关于</a></li>
+            <li><a href="#siteSkills">技能</a></li>
             <li>
-                <a href="#">作品</a>
+                <a href="#siteWorks">作品</a>
                 <ul class="submenu">
                     <li><a href="#">作品1</a></li>
                     <li><a href="#">作品2</a></li>
@@ -58,7 +58,7 @@
     <div class="mask"></div>
 </div>
 <main>
-    <div class="userCard">
+    <div id="siteAbout" class="userCard">
         <div class="message">
             <div class="headPic">
                 <img src="./image/旺哥.jpg" height="347">
@@ -133,7 +133,7 @@
     </p>
 
 </main>
-<section class="skills">
+<section id="siteSkills" class="skills">
     <h1>技能</h1>
     <ul>
         <li>
@@ -176,7 +176,7 @@
 </section>
 
 
-<section class="portfolio">
+<section id="siteWorks" class="portfolio">
     <h1>作品集</h1>
     <nav>
         <ul>
@@ -222,6 +222,51 @@
             topNavBarNav.classList.remove('sticky')
         }
     }
+    let liTags = document.querySelectorAll('.topNavBar>.nav>ul>li')
+    for(let i = 0;i<liTags.length;i++){
+        liTags[i].onmouseenter = function(x){
+            //要监听父级元素,且子级元素与父级元素要相连哦
+            // console.log(1)
+            // console.log(x.currentTarget)
+            let liTag = x.currentTarget
+            liTag.classList.add('active')
+        }
+        liTags[i].onmouseleave = function(x){
+            let liTag = x.currentTarget
+            liTag.classList.remove('active')
+        }
+    }
+    let aTags = document.querySelectorAll('.topNavBar>.nav>ul>li>a')
+    for (let i = 0;i<aTags.length;i++){
+        aTags[i].onclick = function(y){
+            y.preventDefault() //阻止<a>标签的默认跳转动作
+            let a = y.currentTarget
+            // console.log(a.href) 这个得到的href是有http协议的
+            //console.log(a.getAttribute('href')) //这个是写什么就会出来什么
+            let href = a.getAttribute('href')
+            let element = document.querySelector(href)
+            let top = element.offsetTop
+
+
+            let n = 25//移动的次数(因为1s移动24次,人眼就很难分辨出来了,这里做的更精细啦)
+            let t = 500/n//多长时间移动一次
+            let currentTop = window.scrollY
+            let targetTop = top-70
+            let s = (targetTop-currentTop)/n//每次移动的距离
+            let i = 0
+            let id  = setInterval(()=>{
+                i = i+1
+                window.scrollTo(0,currentTop + s*i)
+                if(i === n){
+                   window.clearInterval(id)
+                    return
+                }
+            },t)
+        }
+    }
+
+
+
 </script>
 </body>
 </html>

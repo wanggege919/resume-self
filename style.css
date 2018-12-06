@@ -48,7 +48,7 @@
     position: relative;
     padding: 3px 0;
 }
-.topNavBar>.nav>ul>li>a:hover::after{
+.topNavBar>.nav>ul>li.active>a::after{
     content: '';
     display: block;
     width: 100%;
@@ -68,15 +68,16 @@
         width: 100%;
     }
 }
+
 .topNavBar>.nav>ul>li>.submenu{
     display: none;
-}
-.topNavBar>.nav>ul>li>.submenu{
     position: absolute;
     top: 100%;
     right: 0;
     background: white;
     color: #3d4451;
+    padding: 5px 5px;
+    box-shadow: 0 0 6px 0 rgba(0,0,0,0.3);
 }
 .topNavBar>.nav>ul>li>.submenu>li{
     white-space: nowrap;
@@ -85,7 +86,7 @@
 .topNavBar>.nav>ul>li>.submenu>li:hover{
     color: red;
 }
-.topNavBar>.nav>ul>li:hover .submenu{
+.topNavBar>.nav>ul>li.active .submenu{
     display: block;
     animation: submenuSlide 0.3s;
 
