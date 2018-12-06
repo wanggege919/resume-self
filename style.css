@@ -8,6 +8,16 @@
     position: fixed;
     /*不仅可以脱离标准流,还可以在滚动时保持不动*/
     /*z-index: 1;*/
+    transition: all 0.25s linear;
+}
+.topNavBar>.nav.sticky{
+    height: 60px;
+    background: white;
+    color: #484f5b;
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+}
+.topNavBar>.nav.sticky>ul>li{
+    color: #3d4451;
 }
 .topNavBar>.nav>.logo{
     display: flex;
@@ -31,6 +41,64 @@
     font-size: 12px;
     font-weight: 700;
     color: white;
+    position: relative;
+    padding: 6px 0;
+}
+.topNavBar>.nav>ul>li>a{
+    position: relative;
+    padding: 3px 0;
+}
+.topNavBar>.nav>ul>li>a:hover::after{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 3px;
+    border-radius: 2px;
+    background: #e8676b;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    animation: menuSlide 0.3s linear;
+}
+@keyframes menuSlide{
+    0%{
+        width: 0px;
+    }
+    100%{
+        width: 100%;
+    }
+}
+.topNavBar>.nav>ul>li>.submenu{
+    display: none;
+}
+.topNavBar>.nav>ul>li>.submenu{
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    color: #3d4451;
+}
+.topNavBar>.nav>ul>li>.submenu>li{
+    white-space: nowrap;
+    margin: 5px;
+}
+.topNavBar>.nav>ul>li>.submenu>li:hover{
+    color: red;
+}
+.topNavBar>.nav>ul>li:hover .submenu{
+    display: block;
+    animation: submenuSlide 0.3s;
+
+}
+@keyframes submenuSlide {
+   0%{
+       /*margin-right: 100%;*/
+       right: 100%;
+   }
+    100%{
+        /*margin-right: 0;*/
+        right: 0;
+    }
 }
 /*topNavBar 结束*/
 

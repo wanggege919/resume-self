@@ -22,7 +22,7 @@
     <div class="loading"></div>
 </div>
 <div class="topNavBar">
-    <div class="nav">
+    <div id="topNavBarNav" class="nav">
         <a href="#" class="logo">
             <span class="rs">RS</span>
             <span class="card">card</span>
@@ -30,10 +30,24 @@
         <ul>
             <li><a href="#">关于</a></li>
             <li><a href="#">技能</a></li>
-            <li><a href="#">作品</a></li>
+            <li>
+                <a href="#">作品</a>
+                <ul class="submenu">
+                    <li><a href="#">作品1</a></li>
+                    <li><a href="#">作品2</a></li>
+                    <li><a href="#">作品3</a></li>
+                </ul>
+            </li>
             <li><a href="#">经验</a></li>
             <li><a href="#">价钱</a></li>
-            <li><a href="#">博客</a></li>
+            <li>
+                <a href="#">博客</a>
+                <ul class="submenu">
+                    <li><a href="#">博客1</a></li>
+                    <li><a href="#">博客2</a></li>
+                    <li><a href="#">博客3</a></li>
+                </ul>
+            </li>
             <li><a href="#">日历</a></li>
             <li><a href="#">联系</a></li>
             <li><a href="#">其他</a></li>
@@ -200,7 +214,14 @@
 <script>
     setTimeout(function(){
         siteWelcome.classList.remove('active')
-    },2000)
+    })
+    window.onscroll = function(){
+        if(window.scrollY > 0){
+            topNavBarNav.classList.add('sticky')
+        }else{
+            topNavBarNav.classList.remove('sticky')
+        }
+    }
 </script>
 </body>
 </html>
