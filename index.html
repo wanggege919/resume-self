@@ -210,6 +210,8 @@
         </div>
     </div>
 </section>
+<!--缓动函数库-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.2.0/Tween.min.js"></script>
 <script src="./main.js"></script>
 <script>
     setTimeout(function(){
@@ -236,6 +238,12 @@
             liTag.classList.remove('active')
         }
     }
+    // Setup the animation loop.
+    function animate(time) {
+        requestAnimationFrame(animate);
+        TWEEN.update(time);
+    }
+    requestAnimationFrame(animate);
     let aTags = document.querySelectorAll('.topNavBar>.nav>ul>li>a')
     for (let i = 0;i<aTags.length;i++){
         aTags[i].onclick = function(y){
@@ -247,21 +255,21 @@
             let element = document.querySelector(href)
             let top = element.offsetTop
 
-
-            let n = 25//移动的次数(因为1s移动24次,人眼就很难分辨出来了,这里做的更精细啦)
-            let t = 500/n//多长时间移动一次
             let currentTop = window.scrollY
             let targetTop = top-70
-            let s = (targetTop-currentTop)/n//每次移动的距离
-            let i = 0
-            let id  = setInterval(()=>{
-                i = i+1
-                window.scrollTo(0,currentTop + s*i)
-                if(i === n){
-                   window.clearInterval(id)
-                    return
-                }
-            },t)
+            let s = targetTop - currentTop
+            let t = Math.abs(s/100*100)//每一百像素分配300ms,根据距离来决定时间长短,时间要保证正值
+            if(t>500){
+                t=500
+            }
+            var coords = {y: currentTop };
+            var tween = new TWEEN.Tween(coords)
+                .to({y: targetTop }, t)
+                .easing(TWEEN.Easing.Quadratic.Out)
+                .onUpdate(function() {
+                    window.scrollTo(0,coords.y)
+                })
+                .start();
         }
     }
 
