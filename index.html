@@ -18,9 +18,9 @@
     </style>
 </head>
 <body>
-<div id="siteWelcome" class="site-welcome active">
-    <div class="loading"></div>
-</div>
+<!--<div id="siteWelcome" class="site-welcome active">-->
+    <!--<div class="loading"></div>-->
+<!--</div>-->
 <div class="topNavBar">
     <div id="topNavBarNav" class="nav">
         <a href="#" class="logo">
@@ -58,7 +58,7 @@
     <div class="mask"></div>
 </div>
 <main>
-    <div id="siteAbout" class="userCard">
+    <div data-x id="siteAbout" class="userCard">
         <div class="message">
             <div class="headPic">
                 <img src="./image/旺哥.jpg" height="347">
@@ -133,7 +133,7 @@
     </p>
 
 </main>
-<section id="siteSkills" class="skills">
+<section data-x id="siteSkills" class="skills">
     <h1>技能</h1>
     <ul>
         <li>
@@ -176,7 +176,7 @@
 </section>
 
 
-<section id="siteWorks" class="portfolio">
+<section data-x id="siteWorks" class="portfolio">
     <h1>作品集</h1>
     <nav>
         <ul>
@@ -214,16 +214,46 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.2.0/Tween.min.js"></script>
 <script src="./main.js"></script>
 <script>
-    setTimeout(function(){
-        siteWelcome.classList.remove('active')
-    })
+    // setTimeout(function(){
+    //     siteWelcome.classList.remove('active')
+    // })
+    //添加 offset 类
+    let specialTags = document.querySelectorAll('[data-x]')
+    for(let i = 0;i<specialTags.length;i++){
+        specialTags[i].classList.add('offset')
+    }
+    findClosest()
     window.onscroll = function(){
         if(window.scrollY > 0){
             topNavBarNav.classList.add('sticky')
         }else{
             topNavBarNav.classList.remove('sticky')
         }
+        findClosest()
     }
+    function findClosest() {
+        let specialTags = document.querySelectorAll('[data-x]')
+        let minIndex = 0
+        for(let i=1;i<specialTags.length;i++){
+            if(Math.abs(specialTags[i].offsetTop-window.scrollY) < Math.abs(specialTags[minIndex].offsetTop-window.scrollY)){
+                minIndex = i
+            }
+        }
+        //minIndex 就是离窗口最近的元素
+        specialTags[minIndex].classList.remove('offset')
+        let id = specialTags[minIndex].id
+        console.log(id)
+        let a = document.querySelectorAll('a[href="#'+ id +'"]')[0]
+        console.log(a)
+        let li = a.parentNode
+        console.log(li)
+        let children = li.parentNode.children
+        for(let i=0;i<children.length;i++){
+            children[i].classList.remove('highLight')
+        }
+        li.classList.add('highLight')
+    }
+
     let liTags = document.querySelectorAll('.topNavBar>.nav>ul>li')
     for(let i = 0;i<liTags.length;i++){
         liTags[i].onmouseenter = function(x){
@@ -256,7 +286,7 @@
             let top = element.offsetTop
 
             let currentTop = window.scrollY
-            let targetTop = top-70
+            let targetTop = top-80
             let s = targetTop - currentTop
             let t = Math.abs(s/100*100)//每一百像素分配300ms,根据距离来决定时间长短,时间要保证正值
             if(t>500){
@@ -272,6 +302,7 @@
                 .start();
         }
     }
+
 
 
 

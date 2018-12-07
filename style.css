@@ -1,3 +1,10 @@
+[data-x].offset{
+    transform: translateY(150px);
+}
+[data-x]{
+    transform: translateY(0px);
+    transition: all 0.3s;
+}
 .topNavBar>.nav{
     display: flex;
     justify-content: space-between;
@@ -7,7 +14,7 @@
     align-items: center;
     position: fixed;
     /*不仅可以脱离标准流,还可以在滚动时保持不动*/
-    /*z-index: 1;*/
+    z-index: 1;
     transition: all 0.25s linear;
 }
 .topNavBar>.nav.sticky{
@@ -48,7 +55,8 @@
     position: relative;
     padding: 3px 0;
 }
-.topNavBar>.nav>ul>li.active>a::after{
+.topNavBar>.nav>ul>li.active>a::after,
+.topNavBar>.nav>ul>li.highLight>a::after{
     content: '';
     display: block;
     width: 100%;
@@ -270,7 +278,6 @@ section.skills>ul>li>.progressBar{
     height: 6px;
     background: #fae1e1;
     border-radius: 3px;
-
 }
 section.skills>ul>li>.progressBar>.progress{
     width: 70%;
@@ -278,6 +285,23 @@ section.skills>ul>li>.progressBar>.progress{
     border-radius: 3px;
     background: #e8676b;
     margin-top: 8px;
+    transition: all 1s;
+}
+section.skills>ul>li>.progressBar>.progress.one{
+    width: 20%;
+}
+section.skills>ul>li>.progressBar>.progress.two{
+    width: 40%;
+}
+section.skills>ul>li>.progressBar>.progress.three{
+    width: 35%;
+}
+section.skills>ul>li>.progressBar>.progress.four{
+    width: 50%;
+}
+
+section.skills.offset>ul>li>.progressBar>.progress{
+    width: 0px;
 }
 
 /*section1 skills 结束*/
