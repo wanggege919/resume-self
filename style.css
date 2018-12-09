@@ -5,6 +5,13 @@
     transform: translateY(0px);
     transition: all 0.3s;
 }
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
 .topNavBar>.nav{
     display: flex;
     justify-content: space-between;
@@ -344,56 +351,7 @@ section.portfolio>h1{
     top: 330px;
     right: -66px;
 }
-/*section.portfolio nav{*/
-    /*display: inline-block;*/
-    /*margin: 0 auto;*/
-/*}*/
-/*section.portfolio ul{*/
-    /*!*text-align: center;*!*/
-/*}*/
-/*section.portfolio ul>li{*/
-    /*display: inline-block;*/
-/*}*/
-/*section.portfolio ul>li:nth-child(2){*/
-    /*margin: 0 40px;*/
-/*}*/
-/*section.portfolio div.bar{*/
-    /*height: 3px;*/
-    /*border-radius: 2px;*/
-    /*background: white;*/
-    /*margin-top: 6px;*/
-    /*margin-bottom: 28px;*/
-/*}*/
-/*section.portfolio div.bar>.inner{*/
-    /*height: 3px;*/
-    /*border-radius: 2px;*/
-    /*background: red;*/
-    /*transition: all 0.2s;*/
-/*}*/
-/*section.portfolio div.status-1>.inner{*/
-    /*width: 32px;*/
-/*}*/
-/*section.portfolio div.status-2>.inner{*/
-    /*width:49px;*/
-    /*margin-left: 76px;*/
-/*}*/
-/*section.portfolio div.status-3>.inner{*/
-    /*width: 82px;*/
-    /*margin-left: 169px;*/
-/*}*/
-/*section.portfolio>.jobs{*/
-    /*display: flex;*/
-    /*justify-content: space-between;*/
-/*}*/
-/*section.portfolio>.jobs>.big{*/
-    /*display: flex;*/
-    /*align-items: end;*/
-/*}*/
-/*section.portfolio>.jobs>.small{*/
-    /*display: flex;*/
-    /*flex-direction: column;*/
-    /*justify-content: space-between;*/
-/*}*/
+
 
 
 
