@@ -11,14 +11,14 @@
         //获取数据
         fetch: function(){
             var query = new AV.Query('Message');
-            query.find()
+            return query.find()
         },
         //保存数据
         save: function (name,content) {
 
             var Message = AV.Object.extend('Message')
             var message = new Message()
-            message.save({
+            return message.save({
                 name: name,
                 'content': content
             })
