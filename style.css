@@ -371,5 +371,29 @@ section.message>.postMessageForm{
     max-width: 668px;
     margin: 20px auto;
     /*text-align: center;*/
+}
+section.message>.postMessageForm>ul{
+    display: flex;
 
+}
+section.message>.postMessageForm>ul>.nameSpace,
+section.message>.postMessageForm>ul>.contentSpace{
+    margin-right: 20px;
+    position: relative;
+}
+section.message>.postMessageForm>ul>.nameSpace>p,
+section.message>.postMessageForm>ul>.contentSpace>p{
+    display: none;
+    position: absolute;
+    top: 25px;
+    left: 35px;
+    color: red;
+}
+section.message>.postMessageForm>ul>.nameSpace>p.active,
+section.message>.postMessageForm>ul>.contentSpace>p.active{
+    display: block;
+    position: absolute;
+    top: 25px;
+    left: 35px;
+    color: red;
 }

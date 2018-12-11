@@ -68,14 +68,24 @@
             var myForm = this.form
             var content = myForm.querySelector('input[name=content]').value
             var name = myForm.querySelector('input[name=name]').value
-            this.model.save(name,content).then(function (object) {
-                let li = document.createElement('li')
-                li.innerText = `${object.attributes.name}: ${object.attributes.content}`
-                messageList.appendChild(li)
-                myForm.querySelector('input[name=content]').value = ''
-                myForm.querySelector('input[name=name]').value = ''
-                console.log(object)
-            })
+            myForm.querySelector('.nameSpace>p').classList.remove('active')
+            myForm.querySelector('.contentSpace>p').classList.remove('active')
+            if(name === ''){
+                myForm.querySelector('.nameSpace>p').classList.add('active')
+            }else if(content === ''){
+                myForm.querySelector('.contentSpace>p').classList.add('active')
+            }else{
+                this.model.save(name,content).then(function (object) {
+                    let li = document.createElement('li')
+                    li.innerText = `${object.attributes.name}: ${object.attributes.content}`
+                    messageList.appendChild(li)
+                    myForm.querySelector('input[name=content]').value = ''
+                    myForm.querySelector('input[name=name]').value = ''
+                    console.log(object)
+                })
+            }
+
+
         },
     }
     controller.init(view,model)
