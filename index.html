@@ -10,9 +10,9 @@
     <script src="//at.alicdn.com/t/font_864312_d0l9ydkxbcv.js"></script>
 </head>
 <body>
-<div id="siteWelcome" class="site-welcome active">
-    <div class="loading"></div>
-</div>
+<!--<div id="siteWelcome" class="site-welcome active">-->
+    <!--<div class="loading"></div>-->
+<!--</div>-->
 <div class="topNavBar">
     <div id="topNavBarNav" class="nav">
         <a href="#" class="logo">
@@ -192,19 +192,31 @@
         <div class="swiper-button-next"></div>
     </div>
 </section>
+<section class="message">
+    <h2>留言</h2>
+    <ol id="messageList"></ol>
+    <form id="postMessage" class="postMessageForm">
+        <label for="xingming">姓名</label>
+        <input type="text" name="name" id="xingming">
+        <label for="neirong">内容</label>
+        <input type="text" name="content" id="neirong">
+        <input type="submit" value="提交">
+    </form>
+</section>
 
 <!--缓动函数库-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.2.0/Tween.min.js"></script>
 <script src="./main.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.0/dist/av-min.js"></script>
 <!--模块化-->
-<script src="./js/loading.js"></script>
+<!--<script src="./js/loading.js"></script>-->
 <script src="./js/init-swiper.js"></script>
 <script src="./js/auto-slide-up.js"></script>
 <script src="./js/sticky-topBar.js"></script>
 <script src="./js/smoothly-navigation.js"></script>
 <script src="./js/mouseenter-nav-highLight.js"></script>
-
+<script src="./js/message.js"></script>
 
 
 </body>
